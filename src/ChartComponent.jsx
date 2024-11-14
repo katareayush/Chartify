@@ -3,6 +3,11 @@ import CustomChart from './CustomChart';
 import 'chart.js/auto';
 import axios from 'axios';
 
+
+const API_URL = import.meta.env.MODE === 'development'
+  ? 'http://localhost:5000/api'
+  : import.meta.env.VITE_BACKEND_URL;
+
 const ChartComponent = () => {
     const [originalData, setOriginalData] = useState([]);
     const [chartData, setChartData] = useState({
@@ -20,7 +25,7 @@ const ChartComponent = () => {
     const [endDate, setEndDate] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/data')
+        axios.get(`${API_URL}/data`)
             .then(response => {
                 console.log(response.data);  
                 setOriginalData(response.data);
