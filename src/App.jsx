@@ -1,5 +1,6 @@
 import BarGraphComp from "./CustomChart"
 import ChartComponent from "./ChartComponent"
+import AccessLogForm from "./AccessForm"
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <ChartComponent/>
       <BarGraphComp/>
+      <AccessLogForm/>
     </>
   )
 }

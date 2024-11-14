@@ -33,7 +33,7 @@ const ChartComponent = () => {
     
 
     const updateChartData = (data) => {
-        const dates = data.map(entry => new Date(entry.createdAt["$date"]).toLocaleDateString());
+        const dates = data.map(entry => new Date(entry.createdAt).toLocaleDateString());
         const energyConsumption = data.map(entry => entry.total_kwh);
         setChartData({
             labels: dates,
@@ -57,7 +57,7 @@ const ChartComponent = () => {
         }
     
         const filteredData = originalData.filter(entry => {
-            const entryDate = new Date(entry.createdAt["$date"]);
+            const entryDate = new Date(entry.createdAt);
             return entryDate >= start && entryDate <= end;
         });
     
@@ -67,7 +67,7 @@ const ChartComponent = () => {
 
     return (
         <div className="p-6 bg-gray-100 min-h-screen">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Energy Consumption Over Time</h2>
+            <h2 className="text-[52px] font-bold text-gray-800 mb-4 flex justify-center">Energy Consumption Over Time</h2>
             
             <div className="flex flex-wrap items-center gap-4 mb-6">
                 <label className="flex flex-col text-sm text-gray-600">
